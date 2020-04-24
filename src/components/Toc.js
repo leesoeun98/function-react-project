@@ -7,7 +7,7 @@ function Toc(props){
     const data=props.contents;
     for(let i=0;i<data.length;i++){
         list.push(
-        <li key={data[i].id}><a href={"#"+data[i].id}>{data[i].title}</a></li>
+        <li key={data[i].id}><a href="#" onClick={props.onChangeMode}>{data[i].title}</a></li>
         )
     }
 

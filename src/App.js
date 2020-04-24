@@ -15,8 +15,11 @@ function App() {
   ];
   const subject={title: "welcome", sub: "World wide web!"}; //상단에, Subject에
   const welcome={title:"Hello React", desc:"Welcome to react world"}; //클릭시 하단에
-  const [mode,setMode]=useState("read");
+  const [mode,setMode]=useState("welcome");
   const [selected_content_id, setId]=useState(1);
+
+  const [title, setTitle] = useState(welcome.title);
+  const [desc, setDesc] = useState(welcome.desc);
 
   const getReadContents=(contents)=>{
     for(let i=0;i<contents.length;i++){
@@ -26,25 +29,13 @@ function App() {
       }
     }
   }
-
-  const onChangeMode=(e)=> {
-    e.preventDefault();
-    setMode("welcome");
-    console.log(mode);
-  }
-  if(mode==='read'){
-    
-  }
-  else if(mode==='welcome'){
-    _article=<ReadContents title={welcome.title} desc={welcome.desc}></ReadContents>
-  }
+  
   return (
     <div className="App">
-      <Subject title={subject.title} sub={subject.sub}
-      onChangeMode={onChangeMode}>
-      </Subject>
-      <Toc contents={contents}></Toc>
-      {_article}
+      <Subject title={subject.title} sub={subject.sub} setMode={setMode}></Subject>
+      <Toc contents={contents} setMode={setMode}></Toc>
+      {(mode==='welcome' || mode==='read') && <ReadContents title={title} desc={desc}></ReadContents>}
+      {mode==='create' && <></>}
     </div>
   );
 }
