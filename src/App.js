@@ -16,6 +16,16 @@ function App() {
   const subject={title: "welcome", sub: "World wide web!"}; //상단에, Subject에
   const welcome={title:"Hello React", desc:"Welcome to react world"}; //클릭시 하단에
   const [mode,setMode]=useState("read");
+  const [selected_content_id, setId]=useState(1);
+
+  const getReadContents=(contents)=>{
+    for(let i=0;i<contents.length;i++){
+      const data=contents[i];
+      if(data.id===selected_content_id){
+        return data;
+      }
+    }
+  }
 
   const onChangeMode=(e)=> {
     e.preventDefault();
@@ -23,7 +33,7 @@ function App() {
     console.log(mode);
   }
   if(mode==='read'){
-
+    
   }
   else if(mode==='welcome'){
     _article=<ReadContents title={welcome.title} desc={welcome.desc}></ReadContents>
@@ -33,6 +43,7 @@ function App() {
       <Subject title={subject.title} sub={subject.sub}
       onChangeMode={onChangeMode}>
       </Subject>
+      <Toc contents={contents}></Toc>
       {_article}
     </div>
   );
