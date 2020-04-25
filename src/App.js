@@ -13,11 +13,17 @@ const MODE_CREATE = 'create';
 const MODE_UPDATE = 'update';
 const MODE_DELETE = 'delete';
 const CONTENT_WELCOME = {title: 'Welcome', desc: 'Hello, React!'};
+const TOC_LIST_DEFAULT = [
+  {title: 'HTML', desc: 'HTML is for layout'},
+  {title: 'CSS', desc: 'CSS is for graphics'},
+  {title: 'JavaScript', desc: 'JS is for interaction'},
+];
 
 // main component
 function App() {
   const [mode, setMode] = useState(MODE_WELCOME);
   const [content, setContent] = useState(CONTENT_WELCOME); // ReadContents에 표시될 title과 description
+  const [tocList, setTocList] = useState(TOC_LIST_DEFAULT); // Toc 메뉴에 들어갈 것들 (CRUD 메뉴를 통해 수정이 되므로 state로 선언)
 
   return (
     <div className="App">
@@ -45,6 +51,7 @@ function App() {
       {/* --- 콘텐츠 메뉴 --- */}
       <Toc
         changeMode={() => setMode(MODE_READ)}
+        tocList={tocList}
         setContent={setContent}></Toc>
 
       {/* --- CRUD 메뉴 --- */}
