@@ -55,11 +55,17 @@ function App() {
         setContent={setContent}></Toc>
 
       {/* --- CRUD 메뉴 --- */}
-      <Control></Control>
+      <Control
+        MODE_CREATE={MODE_CREATE} /* 이렇게 constant를 props로 넘겨주는건 좋아보이진 않음 */
+        MODE_UPDATE={MODE_UPDATE} /* 하지만 이게 내 한계인걸 */
+        MODE_DELETE={MODE_DELETE} /* 좋은 방법 있으며어언 소개 시켜줘어어~~ */
+        setMode={setMode}
+        tocList={tocList}
+        setTocList={setTocList}></Control>
 
       {/* --- 출력될 내용 --- */}
       {(mode===MODE_WELCOME || mode===MODE_READ) && <ReadContents content={content}></ReadContents>}
-      {mode===MODE_CREATE && <></>}
+      {mode===MODE_DELETE && <></>}
       {mode===MODE_UPDATE && <></>}
       {mode===MODE_DELETE && <></>}
     </div>

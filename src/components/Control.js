@@ -1,13 +1,18 @@
 import React,{useState} from 'react';
 
+// control component
+function Control(props){
+    const onControlClicked = (e, mode) => {
+        e.preventDefault();
+        props.setMode(mode);
+    }
 
-function Control(){
     return (
         <div>
             <ul>
-                <li><a href="#">control1</a></li>
-                <li><a href="#">control2</a></li>
-                <li><a href="#">control3</a></li>
+                <li><a href="#" onClick={(e) => onControlClicked(e, props.MODE_CREATE)}>Create</a></li>
+                <li><a href="#" onClick={(e) => onControlClicked(e, props.MODE_UPDATE)}>Update</a></li>
+                <li><button onClick={(e) => onControlClicked(e, props.MODE_DELETE)}>Delete</button></li>
             </ul>
         </div>
     );
