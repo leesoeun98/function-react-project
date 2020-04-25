@@ -1,12 +1,17 @@
 import React,{useState} from 'react';
 
 function Subject(props){
+    const onSubjectClicked = (e) => {
+        e.preventDefault();
+        props.changeMode();
+    };
+
     return(
         <div> 
             <h1>
-                <a href="#">title</a>
+                <a href="#" onClick={onSubjectClicked}>WEB</a>
             </h1>
-            sub
+            World Wide Web!
         </div>
     );
 }

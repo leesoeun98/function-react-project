@@ -18,8 +18,9 @@ function App() {
 
   return (
     <div className="App">
-      <Subject></Subject>
-      <Toc></Toc>
+      {/* changeMode: 그냥 'setMode(...)'가 아니라, arrow function으로 넘겨줄 것 */}
+      <Subject changeMode={() => setMode(MODE_WELCOME)}></Subject>
+      <Toc changeMode={() => setMode(MODE_READ)}></Toc>
       <Control></Control>
       {(mode===MODE_WELCOME || mode===MODE_READ) && <ReadContents></ReadContents>}
       {mode===MODE_CREATE && <></>}
