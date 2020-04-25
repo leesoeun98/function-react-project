@@ -4,6 +4,7 @@ function Subject(props){
     const onSubjectClicked = (e) => {
         e.preventDefault();
         props.changeMode();
+        props.changeContent();
     };
 
     return(
