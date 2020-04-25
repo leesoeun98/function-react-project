@@ -5,6 +5,7 @@ import Subject from './components/Subject';
 import Toc from './components/Toc';
 import Control from './components/Control';
 import ReadContents from './components/ReadContents';
+import CreateContent from './components/CreateContent';
 
 // constants
 const MODE_WELCOME = 'welcome';
@@ -65,7 +66,7 @@ function App() {
 
       {/* --- 출력될 내용 --- */}
       {(mode===MODE_WELCOME || mode===MODE_READ) && <ReadContents content={content}></ReadContents>}
-      {mode===MODE_DELETE && <></>}
+      {mode===MODE_CREATE && <CreateContent></CreateContent>}
       {mode===MODE_UPDATE && <></>}
       {mode===MODE_DELETE && <></>}
     </div>
