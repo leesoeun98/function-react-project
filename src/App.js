@@ -64,9 +64,13 @@ function App() {
         tocList={tocList}
         setTocList={setTocList}></Control>
 
-      {/* --- 출력될 내용 --- */}
-      {(mode===MODE_WELCOME || mode===MODE_READ) && <ReadContents content={content}></ReadContents>}
-      {mode===MODE_CREATE && <CreateContent></CreateContent>}
+      {/* --- 출력할 내용 --- */}
+      {(mode===MODE_WELCOME || mode===MODE_READ) &&
+        <ReadContents content={content}></ReadContents>}
+
+      {mode===MODE_CREATE &&
+        <CreateContent tocList={tocList} setTocList={setTocList}></CreateContent>}
+        
       {mode===MODE_UPDATE && <></>}
       {mode===MODE_DELETE && <></>}
     </div>
