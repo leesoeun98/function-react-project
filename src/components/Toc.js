@@ -2,19 +2,12 @@ import React,{useState} from 'react';
 
 
 function Toc(props){
-
-    const list=[];
-    const data=props.contents;
-    for(let i=0;i<data.length;i++){
-        list.push(
-        <li key={data[i].id}><a href="#" onClick={props.onChangeMode}>{data[i].title}</a></li>
-        )
-    }
-
     return (
         <div>
             <ul>
-                {list}
+                <li><a href="#">dummy1</a></li>
+                <li><a href="#">dummy2</a></li>
+                <li><a href="#">dummy3</a></li>
             </ul>
         </div>
     );
